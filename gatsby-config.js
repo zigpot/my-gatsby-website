@@ -3,22 +3,22 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `My Gatsby Site`,
+    title: `fariz' site`,
     siteUrl: `https://www.yourdomain.tld`
   },
-  plugins: ["gatsby-plugin-google-gtag", "gatsby-plugin-image", "gatsby-plugin-mdx", "gatsby-plugin-sharp", "gatsby-transformer-sharp", {
-    resolve: 'gatsby-source-filesystem',
+  plugins: ["gatsby-plugin-image", "gatsby-plugin-mdx", "gatsby-plugin-sharp", "gatsby-transformer-sharp", "gatsby-plugin-image",
+  "gatsby-plugin-sharp",    {
+    resolve: 'gatsby-plugin-manifest',
     options: {
-      "name": "images",
-      "path": "./src/images/"
+      icon: 'src/assets/images/icon.svg',
     },
-    __key: "images"
-  }, {
+  },{
     resolve: 'gatsby-source-filesystem',
     options: {
       "name": "pages",
-      "path": "./src/pages/"
+      "path": "/home/fariz/tmp/my-gatsby-site/blog/"
     },
     __key: "pages"
-  }]
+  },
+  "gatsby-plugin-mdx",]
 };

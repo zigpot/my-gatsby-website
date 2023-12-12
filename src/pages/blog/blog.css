@@ -1,0 +1,22 @@
+
+.text-body{
+    text-align: justify;
+    /* font-family: 'EB Garamond'; */
+}
+
+.text-title{
+    font-weight: 800;
+}
+
+.text-author{
+    font-family: 'Jost', 'Sans Serif';
+    font-weight: 800;
+    color: rgb(40, 40, 40)
+}
+
+.text-date{
+    font-family: 'Jost';
+    font-weight: 800;
+    font-size: 14px;
+    color: rgb(140, 140, 140)
+}

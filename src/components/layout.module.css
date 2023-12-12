@@ -1,0 +1,31 @@
+@import url(//fonts.googleapis.com/css?family=Open+Sans);
+@import url(//fonts.googleapis.com/css?family=Roboto);
+@import url(//fonts.googleapis.com/css?family=Jost);
+@import url(//fonts.googleapis.com/css?family=EB+Garamond);
+
+.container {
+    font-family: 'Roboto', 'Open Sans', 'sans-serif';
+    margin: auto;
+    max-width: 500px;
+  }
+  
+  .heading {
+    color: rgb(46, 46, 46);
+  }
+  .nav-links {
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+  }
+  .nav-link-item {
+    padding-right: 2rem;
+  }
+  .nav-link-text {
+    color: black;
+  }
+  .site-title {
+    font-size: 3rem;
+    color: gray;
+    font-weight: 700;
+    margin: 3rem 0;
+  }
