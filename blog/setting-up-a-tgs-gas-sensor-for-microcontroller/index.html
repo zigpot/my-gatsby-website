@@ -1,0 +1,143 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="generator" content="Gatsby 5.12.12"/><style data-href="/styles.5523bddab7a591896cd9.css" data-identity="gatsby-global-css">@import url(//fonts.googleapis.com/css?family=Open+Sans);@import url(//fonts.googleapis.com/css?family=Roboto);@import url(//fonts.googleapis.com/css?family=Jost);@import url(//fonts.googleapis.com/css?family=EB+Garamond);.layout-module--container--78b04{font-family:Roboto,Open Sans,"sans-serif";margin:auto;max-width:500px}.layout-module--heading--f158c{color:#2e2e2e}.layout-module--nav-links--1113b{display:flex;list-style:none;padding-left:0}.layout-module--nav-link-item--a5f0a{padding-right:2rem}.layout-module--nav-link-text--69cda{color:#000}.layout-module--site-title--e4dea{color:gray;font-size:3rem;font-weight:700;margin:3rem 0}.layout-module--footer-div--0a652{background-color:red;color:blue;font-size:xx-small}.entry-title,.entry-title:active,.entry-title:hover,.entry-title:visited{color:inherit;text-decoration:none}.entry-date{color:#757575;font-size:14px}.text-body{text-align:justify}.text-author,.text-title{font-weight:800}.text-author{color:#282828;font-family:Jost,"Sans Serif"}.text-date{color:#8c8c8c;font-family:Jost;font-size:14px;font-weight:800}</style><style>.gatsby-image-wrapper{position:relative;overflow:hidden}.gatsby-image-wrapper picture.object-fit-polyfill{position:static!important}.gatsby-image-wrapper img{bottom:0;height:100%;left:0;margin:0;max-width:none;padding:0;position:absolute;right:0;top:0;width:100%;object-fit:cover}.gatsby-image-wrapper [data-main-image]{opacity:0;transform:translateZ(0);transition:opacity .25s linear;will-change:opacity}.gatsby-image-wrapper-constrained{display:inline-block;vertical-align:top}</style><noscript><style>.gatsby-image-wrapper noscript [data-main-image]{opacity:1!important}.gatsby-image-wrapper [data-placeholder-image]{opacity:0!important}</style></noscript><script type="module">const e="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;e&&document.body.addEventListener("load",(function(e){const t=e.target;if(void 0===t.dataset.mainImage)return;if(void 0===t.dataset.gatsbyImageSsr)return;let a=null,n=t;for(;null===a&&n;)void 0!==n.parentNode.dataset.gatsbyImageWrapper&&(a=n.parentNode),n=n.parentNode;const o=a.querySelector("[data-placeholder-image]"),r=new Image;r.src=t.currentSrc,r.decode().catch((()=>{})).then((()=>{t.style.opacity=1,o&&(o.style.opacity=0,o.style.transition="opacity 500ms linear")}))}),!0);</script><link rel="icon" href="/favicon-32x32.png?v=138f1db221b97a07e4727260d113fce9" type="image/png"/><link rel="icon" href="/favicon.svg?v=138f1db221b97a07e4727260d113fce9" type="image/svg+xml"/><link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=138f1db221b97a07e4727260d113fce9"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=138f1db221b97a07e4727260d113fce9"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=138f1db221b97a07e4727260d113fce9"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=138f1db221b97a07e4727260d113fce9"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=138f1db221b97a07e4727260d113fce9"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=138f1db221b97a07e4727260d113fce9"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=138f1db221b97a07e4727260d113fce9"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=138f1db221b97a07e4727260d113fce9"/><title data-gatsby-head="true">Setting Up a TGS Gas Sensor for Microcontroller | unsorted notes</title></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="layout-module--container--78b04"><header class="layout-module--site-title--e4dea">unsorted notes</header><nav><ul class="layout-module--nav-links--1113b"><li class="layout-module--nav-link-item--a5f0a"><a class="layout-module--nav-link-text--69cda" href="/">Home</a></li><li class="layout-module--nav-link-item--a5f0a"><a class="layout-module--nav-link-text--69cda" href="/literatures/">Literatures</a></li><li class="layout-module--nav-link-item--a5f0a"><a class="layout-module--nav-link-text--69cda" href="/blog/">etc</a></li><li class="layout-module--nav-link-item--a5f0a"><a class="layout-module--nav-link-text--69cda" href="/terms/">Terms</a></li><li class="layout-module--nav-link-item--a5f0a"><a class="layout-module--nav-link-text--69cda" href="/about/">About</a></li></ul></nav><main><h1 class="layout-module--heading--f158c">Setting Up a TGS Gas Sensor for Microcontroller</h1><div class="text-body"><div class="text-author">Fariz A.</div><div class="text-date">Tue Sep 28 2021</div><p>Gas sensors are electronic components that undergo change in physical characteristic (such as resistivity) in the presence of certain gases in the atmosphere. Gas sensors have many applications, from gas leakage early warning system, air quality monitor, to <a href="https://ijaseit.insightsociety.org/index.php?option=com_content&amp;view=article&amp;id=9&amp;Itemid=1&amp;article_id=1659">electronic noses</a>. In this article we&#x27;ll be using Arduino and a gas sensor (<a href="https://www.figarosensor.com/product/feature/combustible-gas-sensors.html">TG2600</a>) to measure methane concentration in the air.</p>
+<img src="https://zigpot.files.wordpress.com/2021/09/tgs2600_1.jpg?w=500" alt=""/>
+<p>TGS2600</p>
+<h2>finding the equation</h2>
+<p>Every sensor has it&#x27;s own characteristics. Characteristics of sensors include sensitivity, resolution, linearity, etc. Knowing the sensor&#x27;s characteristics allows us to map a certain value from the sensor to a physical condition, in our case, the concentration of a certain gas.</p>
+<p>These characteristics of sensor is usually specified in the manufacturer&#x27;s datasheet. <a href="https://www.figarosensor.com/product/docs/TGS2600B00%20(0913).pdf">Here</a> is the datasheet for TGS2600. At the bottom of the first page is this graph:</p>
+<img src="https://zigpot.files.wordpress.com/2021/09/sensitivity.png?w=500" alt=""/>
+<p>A graphic representation like that isn&#x27;t particularly suitable for implementation. A better way would be knowing the equation first. After choosing a gas we need pin some coordinate points along the graphic line. For instance, if we choose methane, we can pick some points on methane&#x27;s line which is going to look like this:</p>
+<table><tbody><tr><td>R<sub>s</sub>/R<sub>o</sub></td><td>Gas Concentration (ppm)</td></tr><tr><td>1</td><td>3</td></tr><tr><td>0.95</td><td>5</td></tr><tr><td>0.9</td><td>10</td></tr><tr><td>0.8</td><td>30</td></tr><tr><td>0.75</td><td>40</td></tr><tr><td>0.7</td><td>80</td></tr></tbody></table>
+<p>Now we&#x27;re ready to find an equation. We can use any tools that accommodate power regression such as a calculators, R Studio, or even spreadsheet software (my lecturer actually uses this!). Python is simple and ubiquitous, so let&#x27;s use that.</p>
+<pre><code>from scipy.optimize import curve_fit
+import matplotlib.pyplot as plt
+
+x = [1, 0.95, 0.9, 0.8, 0.75, .7] #Rs/Ro
+y = [3, 5, 10, 30, 40, 80] #ppm
+</code></pre>
+<p>Notice that our input is the resistance and the output is the concentration, hence Rs/Ro as the <em>x</em> axis, and ppm as the <em>y</em> axis. Let&#x27;s try put the data points back on a log-log scale.</p>
+<pre><code>x = [1, 0.95, 0.9, 0.8, 0.75, .7] #Rs/Ro
+y = [ 3, 5, 10, 30, 40, 80] #ppm
+plt.xscale(&quot;log&quot;)
+plt.yscale(&quot;log&quot;)
+plt.xlabel(&#x27;xlabel&#x27;)
+plt.ylabel(&#x27;ylabel&#x27;)
+plt.scatter(x, y, c= &#x27;red&#x27;, alpha = 0.8, s = 18)
+plt.legend()
+plt.show()
+</code></pre>
+<img src="https://zigpot.files.wordpress.com/2021/09/scatter.png?w=500" alt=""/>
+<p>We should see quite obviously, that the regression line will have a negative slope (as x increases, y decreases). With b being a positive number, our equation should be given below:</p>
+<img src="https://zigpot.files.wordpress.com/2021/09/codecogseqn1.png?w=500" alt=""/>
+<p>Scipy has a nice method called optimize.curve_fit which allows us to perform non-linear regression on a set of data points, given a function model. So that&#x27;s it, we&#x27;ll use curve_fit and feed it with our data x and y, and also throw our equation above in as an anonymous function (also known as a lambda).</p>
+<pre><code>popt, pcov = curve_fit(lambda fx,a,b: a*fx**-b,  x,  y)
+x_linspace = np.linspace(min(x), max(x), 100)
+power_y = popt[0]*x_linspace**-popt[1]
+plt.scatter(x, y, label=&#x27;data points&#x27;, c= &#x27;red&#x27;, alpha = 0.5, s = 18)
+plt.plot(x, power_y, label=&#x27;power fit regression&#x27;)
+plt.legend()
+plt.show()
+</code></pre>
+<p>This performs power fit regression on the data, as seen below:</p>
+<img src="https://zigpot.files.wordpress.com/2021/09/powerfit-3.png?w=500" alt=""/>
+<p>That was sufficient as we only need an equation. However if the power fit isn&#x27;t smooth enough, for the sake of graphical representation of our equation, we can use NumPy, to generate more points to represent the regression. That&#x27;ll render a smoother appearance to our line.</p>
+<pre><code>import numpy as np
+
+x = [1, 0.95, 0.9, 0.8, 0.75, .7]
+y = [3, 5, 10, 30, 40, 80]
+popt, pcov = curve_fit(lambda fx,a,b: a*fx**-b,  x,  y)
+x_linspace = np.linspace(min(x), max(x), 100)
+power_y = popt[0]*x_linspace**-popt[1]
+
+plt.xlabel(&#x27;rs/ro&#x27;)
+plt.ylabel(&#x27;concentration (ppm)&#x27;)
+plt.scatter(x, y, label=&#x27;data points&#x27;, c= &#x27;red&#x27;, alpha = 0.5, s = 18)
+plt.plot(x_linspace, power_y, label=&#x27;power fit regression (smooth)&#x27;)
+plt.legend()
+plt.show()
+</code></pre>
+<img src="https://zigpot.files.wordpress.com/2021/09/powerfitsmooth-1.png?w=500" alt=""/>
+<p>Back to the equation, we need to know the value of a and b. This was returned by curve_fit as an array with two elements (we named it popt):</p>
+<pre><code>print(&#x27;The regressions equation is {:.2f}x^-{:.2f}&#x27;
+.format(popt[0],popt[1]))
+</code></pre>
+<p>That would give us:</p>
+<pre><code>The regressions equation is 3.92x^-8.42
+</code></pre>
+<h2>the circuit (simple volt divider)</h2>
+<p>The electronic circuit below explains TGS2600 operational configuration. There are three resistive points:</p>
+<ul>
+<li>
+<p>RH: an isolated resistive element for heating. This heater is voltage supplied by VH.</p>
+</li>
+<li>
+<p>RS: our sensor&#x27;s variable resistor. This is the part that changes it&#x27;s resistance according to gas concentration.</p>
+</li>
+<li>
+<p>RL: load resistance.</p>
+</li>
+</ul>
+<img src="https://zigpot.files.wordpress.com/2021/09/the-tgs-2600-gas-sensor-a-the-characteristics-and-b-its-electrical-circuit-10_w640.jpg?w=500" alt=""/>
+<p>This is how it works:</p>
+<ul>
+<li>
+<p>This circuit act as a basic voltage divider. Knowing the voltage output (VRL) and load resistor RL allows us to know the sensor resistance (RS) as shown by the equation above.</p>
+</li>
+<li>
+<p>RS in our circuit denotes the sensor resistor. However, in terms of resistance, RS is the resistance when a contaminant (Methane, CO, Iso-butane, etc) exists in the air. In the absence of contaminants in the air, the resistance is called RO. This baseline resistance (RO) has to be known prior to performing any operations. The calibration is performed by blowing fresh air onto the sensor (cleaning any remaining contaminants) and measuring the value of RS in a clean environment.</p>
+</li>
+<li>
+<p>We can compare previously measured RO to currently measured RS as a ratio and plug it in to our non-linear equation to obtain the value of gas concentration (ppm) in the air.</p>
+</li>
+</ul>
+<p>Now let&#x27;s solve:</p>
+<img src="https://zigpot.files.wordpress.com/2021/09/codecogseqn3.png?w=500" alt=""/>
+<img src="https://zigpot.files.wordpress.com/2021/09/codecogseqn4.png?w=500" alt=""/>
+<p>And plug it into the regression formula:</p>
+<img src="https://zigpot.files.wordpress.com/2021/09/codecogseqn5.png?w=500" alt=""/>
+<h2>knowing the limits</h2>
+<p>As we have seen in the graph above, the graph line only spans from 1 to 100 ppm. This is the range in which our sensor performs effectively, according to our manufacturer. Any value of RS/R0 that corresponds outside this range will be simply rejected for further measuring.</p>
+<p>To get the limits (the minimum and maximum value), we can simply invert our regression equation, and plug in the corresponding value of 1 and 100 respectively.</p>
+<pre><code>print(&quot;min value = {}&quot;.format(pow(1/popt[0],1/popt[1])))
+print(&quot;max value = {}&quot;.format(pow(100/popt[0],1/popt[1])))
+</code></pre>
+<pre><code>min value = 0.8501540319805124
+max value = 1.4691487900527789
+</code></pre>
+<h2>writing the code</h2>
+<p>Now let&#x27;s program our Arduino! We assume the circuit has been build according to the specification (5V operating voltage etc.) so all we need to do right now is plugging the output of VRL to an analog pin. Let&#x27;s choose A1 as our pin. Also let&#x27;s name all of the variables we have acquired previously.</p>
+<pre><code>const int sensorInputPin = A1;
+const int r_load = 33000;
+long r_zero = 41763;
+const float X_min = 0.850;
+const float X_max = 1.469;
+const float a = 3.92;
+const float b = -8.42;
+
+void setup() {
+  pinMode(sensorInputPin, INPUT);
+  Serial.begin(9600);
+}
+</code></pre>
+<p>As our input will be dividing the maximum value of the analog input (1024), we don&#x27;t need to convert them to voltage. We can then write our equation down and sort out every value that exceeds the limit.</p>
+<pre><code>void loop() {
+  int rawInput = analogRead(sensorInputPin);
+  long r_sensor = ((1024.0 * r_load) / rawInput) - r_load;
+  float rSrO = (float)rS / (float)rO;
+  if (rSrO &gt; X_max) Serial.println(&quot;Out of range (above 100 ppm).&quot;);
+  else if(rSrO &lt; X_min) Serial.println(&quot;Out of range (below 1 ppm).&quot;);
+  else{
+    float ppm = a * pow((float)rS / (float)rO, b);
+    Serial.print(&quot;gas concentration: &quot;);
+    Serial.print(ppm);
+    Serial.println(&quot; ppm&quot;);
+  }
+  delay(1000);
+}
+</code></pre>
+<p>Check out the full code on my <a href="https://github.com/zigpot/tgs2600-on-arduino/">GitHub</a>.</p></div></main><div style="height:40px;background-color:transparent;text-align:center;font-size:xx-small;padding-top:20px" class="footer-div"></div></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/blog/setting-up-a-tgs-gas-sensor-for-microcontroller/";/*]]>*/</script><!-- slice-start id="_gatsby-scripts-1" -->
+          <script
+            id="gatsby-chunk-mapping"
+          >
+            window.___chunkMapping="{\"app\":[\"/app-d52052d3a4a3af11558e.js\"],\"component---src-pages-404-js\":[\"/component---src-pages-404-js-9a4e8bc408490530d146.js\"],\"component---src-pages-about-js\":[\"/component---src-pages-about-js-05a6d155d65eb4879cc7.js\"],\"component---src-pages-blog-index-js\":[\"/component---src-pages-blog-index-js-36dc1c3e6e3f4ba7f9ef.js\"],\"component---src-pages-blog-mdx-frontmatter-slug-js-content-file-path-blog-books-recommendation-dads-index-mdx\":[\"/component---src-pages-blog-mdx-frontmatter-slug-js-content-file-path-blog-books-recommendation-dads-index-mdx-f32920c8d4eff8c5dc91.js\"],\"component---src-pages-blog-mdx-frontmatter-slug-js-content-file-path-blog-have-you-seen-the-man-under-the-bridge-index-mdx\":[\"/component---src-pages-blog-mdx-frontmatter-slug-js-content-file-path-blog-have-you-seen-the-man-under-the-bridge-index-mdx-2168caa228f4f10547af.js\"],\"component---src-pages-blog-mdx-frontmatter-slug-js-content-file-path-blog-hello-and-making-floating-face-effect-index-mdx\":[\"/component---src-pages-blog-mdx-frontmatter-slug-js-content-file-path-blog-hello-and-making-floating-face-effect-index-mdx-eba0fd25b7a3ba9b4d28.js\"],\"component---src-pages-blog-mdx-frontmatter-slug-js-content-file-path-blog-hello-world-mangantempe-wordpress-index-mdx\":[\"/component---src-pages-blog-mdx-frontmatter-slug-js-content-file-path-blog-hello-world-mangantempe-wordpress-index-mdx-b4fcc93d1bbf0a8660d2.js\"],\"component---src-pages-blog-mdx-frontmatter-slug-js-content-file-path-blog-ktm-1190-rc-8-r-2013-index-md\":[\"/component---src-pages-blog-mdx-frontmatter-slug-js-content-file-path-blog-ktm-1190-rc-8-r-2013-index-md-9fd5765ecf75280010e6.js\"],\"component---src-pages-blog-mdx-frontmatter-slug-js-content-file-path-blog-mesin-waktu-index-mdx\":[\"/component---src-pages-blog-mdx-frontmatter-slug-js-content-file-path-blog-mesin-waktu-index-mdx-ee0b38c434e7ce77aa87.js\"],\"component---src-pages-blog-mdx-frontmatter-slug-js-content-file-path-blog-momoko-si-gadis-yandere-index-mdx\":[\"/component---src-pages-blog-mdx-frontmatter-slug-js-content-file-path-blog-momoko-si-gadis-yandere-index-mdx-31e80287f9e17f4505b8.js\"],\"component---src-pages-blog-mdx-frontmatter-slug-js-content-file-path-blog-motor-motor-impian-part-1-index-md\":[\"/component---src-pages-blog-mdx-frontmatter-slug-js-content-file-path-blog-motor-motor-impian-part-1-index-md-6266dfcce472973a3c97.js\"],\"component---src-pages-blog-mdx-frontmatter-slug-js-content-file-path-blog-motor-motor-impian-part-2-index-md\":[\"/component---src-pages-blog-mdx-frontmatter-slug-js-content-file-path-blog-motor-motor-impian-part-2-index-md-559762da449a5bc1982b.js\"],\"component---src-pages-blog-mdx-frontmatter-slug-js-content-file-path-blog-nikon-f-75-review-index-mdx\":[\"/component---src-pages-blog-mdx-frontmatter-slug-js-content-file-path-blog-nikon-f-75-review-index-mdx-00285a5b30804830895f.js\"],\"component---src-pages-blog-mdx-frontmatter-slug-js-content-file-path-blog-sejarah-kungfu-index-mdx\":[\"/component---src-pages-blog-mdx-frontmatter-slug-js-content-file-path-blog-sejarah-kungfu-index-mdx-26387e6172374ef54fdf.js\"],\"component---src-pages-blog-mdx-frontmatter-slug-js-content-file-path-blog-setting-up-gas-sensor-for-microcontroller-index-mdx\":[\"/component---src-pages-blog-mdx-frontmatter-slug-js-content-file-path-blog-setting-up-gas-sensor-for-microcontroller-index-mdx-efc475288a0e72615e32.js\"],\"component---src-pages-blog-mdx-frontmatter-slug-js-content-file-path-blog-sleep-better-index-mdx\":[\"/component---src-pages-blog-mdx-frontmatter-slug-js-content-file-path-blog-sleep-better-index-mdx-d614c88eb3516299db64.js\"],\"component---src-pages-blog-mdx-frontmatter-slug-js-content-file-path-blog-sonny-index-mdx\":[\"/component---src-pages-blog-mdx-frontmatter-slug-js-content-file-path-blog-sonny-index-mdx-f7ad450e5c592a2bb75f.js\"],\"component---src-pages-blog-mdx-frontmatter-slug-js-content-file-path-blog-ujian-nasional-cermin-keterpurukan-sistem-pendidikan-kita-index-mdx\":[\"/component---src-pages-blog-mdx-frontmatter-slug-js-content-file-path-blog-ujian-nasional-cermin-keterpurukan-sistem-pendidikan-kita-index-mdx-4270421911664236c2de.js\"],\"component---src-pages-index-js\":[\"/component---src-pages-index-js-61bfacc570f77f65902d.js\"],\"component---src-pages-literatures-index-js\":[\"/component---src-pages-literatures-index-js-4b85ddd4df147688b8de.js\"],\"component---src-pages-literatures-mdx-frontmatter-slug-js-content-file-path-blog-books-recommendation-dads-index-mdx\":[\"/component---src-pages-literatures-mdx-frontmatter-slug-js-content-file-path-blog-books-recommendation-dads-index-mdx-f7ad159a21e8111d2182.js\"],\"component---src-pages-literatures-mdx-frontmatter-slug-js-content-file-path-blog-have-you-seen-the-man-under-the-bridge-index-mdx\":[\"/component---src-pages-literatures-mdx-frontmatter-slug-js-content-file-path-blog-have-you-seen-the-man-under-the-bridge-index-mdx-f28f87f3475ac81693c1.js\"],\"component---src-pages-literatures-mdx-frontmatter-slug-js-content-file-path-blog-hello-and-making-floating-face-effect-index-mdx\":[\"/component---src-pages-literatures-mdx-frontmatter-slug-js-content-file-path-blog-hello-and-making-floating-face-effect-index-mdx-6e17f0219b90a01cc4b6.js\"],\"component---src-pages-literatures-mdx-frontmatter-slug-js-content-file-path-blog-hello-world-mangantempe-wordpress-index-mdx\":[\"/component---src-pages-literatures-mdx-frontmatter-slug-js-content-file-path-blog-hello-world-mangantempe-wordpress-index-mdx-f9e9a6607fb6dac19a93.js\"],\"component---src-pages-literatures-mdx-frontmatter-slug-js-content-file-path-blog-ktm-1190-rc-8-r-2013-index-md\":[\"/component---src-pages-literatures-mdx-frontmatter-slug-js-content-file-path-blog-ktm-1190-rc-8-r-2013-index-md-1008d795c37ae461a321.js\"],\"component---src-pages-literatures-mdx-frontmatter-slug-js-content-file-path-blog-mesin-waktu-index-mdx\":[\"/component---src-pages-literatures-mdx-frontmatter-slug-js-content-file-path-blog-mesin-waktu-index-mdx-dcc8da97977f74112756.js\"],\"component---src-pages-literatures-mdx-frontmatter-slug-js-content-file-path-blog-momoko-si-gadis-yandere-index-mdx\":[\"/component---src-pages-literatures-mdx-frontmatter-slug-js-content-file-path-blog-momoko-si-gadis-yandere-index-mdx-9ee72fcdc412a51701be.js\"],\"component---src-pages-literatures-mdx-frontmatter-slug-js-content-file-path-blog-motor-motor-impian-part-1-index-md\":[\"/component---src-pages-literatures-mdx-frontmatter-slug-js-content-file-path-blog-motor-motor-impian-part-1-index-md-258cfe4086cd780398dd.js\"],\"component---src-pages-literatures-mdx-frontmatter-slug-js-content-file-path-blog-motor-motor-impian-part-2-index-md\":[\"/component---src-pages-literatures-mdx-frontmatter-slug-js-content-file-path-blog-motor-motor-impian-part-2-index-md-759c135f70032c1f7237.js\"],\"component---src-pages-literatures-mdx-frontmatter-slug-js-content-file-path-blog-nikon-f-75-review-index-mdx\":[\"/component---src-pages-literatures-mdx-frontmatter-slug-js-content-file-path-blog-nikon-f-75-review-index-mdx-24473f20a467fca429e5.js\"],\"component---src-pages-literatures-mdx-frontmatter-slug-js-content-file-path-blog-sejarah-kungfu-index-mdx\":[\"/component---src-pages-literatures-mdx-frontmatter-slug-js-content-file-path-blog-sejarah-kungfu-index-mdx-5e240fa3910b3fb30766.js\"],\"component---src-pages-literatures-mdx-frontmatter-slug-js-content-file-path-blog-setting-up-gas-sensor-for-microcontroller-index-mdx\":[\"/component---src-pages-literatures-mdx-frontmatter-slug-js-content-file-path-blog-setting-up-gas-sensor-for-microcontroller-index-mdx-cb99333aa0481fd6e017.js\"],\"component---src-pages-literatures-mdx-frontmatter-slug-js-content-file-path-blog-sleep-better-index-mdx\":[\"/component---src-pages-literatures-mdx-frontmatter-slug-js-content-file-path-blog-sleep-better-index-mdx-c9729dafe6f37d0459ba.js\"],\"component---src-pages-literatures-mdx-frontmatter-slug-js-content-file-path-blog-sonny-index-mdx\":[\"/component---src-pages-literatures-mdx-frontmatter-slug-js-content-file-path-blog-sonny-index-mdx-6902aee52115492806b0.js\"],\"component---src-pages-literatures-mdx-frontmatter-slug-js-content-file-path-blog-ujian-nasional-cermin-keterpurukan-sistem-pendidikan-kita-index-mdx\":[\"/component---src-pages-literatures-mdx-frontmatter-slug-js-content-file-path-blog-ujian-nasional-cermin-keterpurukan-sistem-pendidikan-kita-index-mdx-35a3b19b186f89713dc0.js\"],\"component---src-pages-terms-js\":[\"/component---src-pages-terms-js-be3698265143ecc259d3.js\"]}";
+          </script>
+        <script>window.___webpackCompilationHash="3b8dcf671266f4a59729";</script><script src="/webpack-runtime-f99f1fd966e98dfe406d.js" async></script><script src="/framework-106eaf75e588fec2b76f.js" async></script><script src="/app-d52052d3a4a3af11558e.js" async></script><!-- slice-end id="_gatsby-scripts-1" --></body></html>
